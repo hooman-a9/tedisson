@@ -20,7 +20,6 @@ import org.springframework.cache.CacheManager;
 import java.time.Duration;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
 
 /**
  * @author R.Mehri
@@ -212,7 +211,7 @@ public class CaffeineCacheManager extends LocalCacheManagerBase implements Local
     }
 
     @Override
-    public boolean addItemToHashIfAbsent(String cacheName, Object key, Object value, Long timeToLive, TimeUnit timeUnit) {
+    public boolean addItemToCashIfAbsent(String cacheName, Object key, Object value, Long timeToLive, TimeUnit timeUnit) {
         CaffeineElement caffeineElement = createCaffeineElement(timeToLive, timeToLive, timeUnit);
         caffeineElement.setValue(value);
         Cache cache = getCacheWithName(cacheName);
